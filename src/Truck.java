@@ -5,6 +5,7 @@ public class Truck extends Car {
 
     public Truck(int nrDoors, Color color, double enginePower, String modelName, Platform platform) {
         super(nrDoors, color, enginePower, modelName);
+        this.platform = platform;
     }
 
     @Override
