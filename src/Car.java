@@ -7,6 +7,7 @@ public class Car implements Movable {
     private double enginePower;
     private int nrDoors;
     private String modelName; // The car model name
+    // TODO Use Point here instead
     private int x;
     private int y;
     private int direction; // 0 = north, 1 = east, 2 = south, 3 = west
