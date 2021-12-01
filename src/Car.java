@@ -32,8 +32,8 @@ public class Car implements Movable {
     }
 
     void setPosition(Point p) {
-        this.x = x;
-        this.y = y;
+        this.x = p.x;
+        this.y = p.y;
     }
 
     public int getDirection() {
