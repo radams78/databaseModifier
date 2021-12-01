@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Stack;
 
-class Loader<T extends Car> {
+class Contents<T extends Car> {
     private Point position;
     private Stack<T> contents;
 

@@ -1,8 +1,5 @@
-import java.awt.*;
-import java.util.Stack;
-
 public class Workshop<T extends Car> {
-    private Loader<T> loader;
+    private Contents<T> loader;
 
     // TODO Constructor
 

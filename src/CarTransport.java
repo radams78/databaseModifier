@@ -1,14 +1,13 @@
 import java.awt.*;
-import java.util.Stack;
 
 public class CarTransport extends Truck {
     private TransportRamp ramp;
-    private Loader<Car> contents;
+    private Contents<Car> contents;
 
     private CarTransport(TransportRamp ramp) {
         super(2, Color.BLACK, 250, "Montway", ramp);
         this.ramp = ramp;
-        this.contents = new Loader<>();
+        this.contents = new Contents<>();
     }
 
     public void raiseRamp() {
