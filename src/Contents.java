@@ -18,6 +18,7 @@ class Contents<T extends Car> {
         if (contents.contains(car)) {
             throw new LoadException("Attempted to load car already on transport");
         }
+        contents.push(car);
     }
 
     public T unload() throws LoadException {
