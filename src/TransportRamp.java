@@ -1,4 +1,4 @@
-// Invariant: !(lock and up)
+// Invariant: !(locked and up)
 public class TransportRamp implements Platform {
     boolean locked = false;
     boolean up = true;
