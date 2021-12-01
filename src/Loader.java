@@ -5,6 +5,7 @@ class Loader<T extends Car> {
     private Point position;
     private Stack<T> contents;
 
+    // TODO Constructor
     public void load(T car) throws LoadException {
         {
             double distance = position.distance(car.getPosition());
