@@ -29,7 +29,7 @@ public class CarTransport extends Truck {
         contents.load(car);
     }
 
-    public Car unload() {
+    public Car unload() throws LoadException {
         if (ramp.isUp())
             throw new LoadException("Attempted to unload car while ramp is up");
 
