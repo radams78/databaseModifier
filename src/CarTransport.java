@@ -10,6 +10,9 @@ public class CarTransport extends Truck {
         this.contents = new Contents<>();
     }
 
+    public CarTransport() {
+        this(new TransportRamp());
+    }
     public void raiseRamp() {
         ramp.raise();
     }
