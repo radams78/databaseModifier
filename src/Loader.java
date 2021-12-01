@@ -27,7 +27,7 @@ class Loader<T extends Car> {
         return contents.pop();
     }
 
-    public void setPosition(Point p) {
+    void setPosition(Point p) {
         position = p;
         for (T car : contents) {
             car.setPosition(p);
