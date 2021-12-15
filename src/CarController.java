@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /*
@@ -12,7 +10,6 @@ import java.util.ArrayList;
 
 public class CarController extends JPanel implements Observer {
     private static final int X = 800;
-    private static final int Y = 800;
 
     // member fields:
 
@@ -20,8 +17,7 @@ public class CarController extends JPanel implements Observer {
     ArrayList<Car> cars = new ArrayList<>();
     ControlPanel controlPanel = new ControlPanel();
     GasPanel gasPanel = new GasPanel();
-    JSpinner gasSpinner = new JSpinner();
-    int gasAmount = 0;
+    GasSpinner gasSpinner = new GasSpinner();
     JLabel gasLabel = new JLabel("Amount of gas");
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
@@ -56,14 +52,6 @@ public class CarController extends JPanel implements Observer {
     }
 
     public CarController() {
-        SpinnerModel spinnerModel =
-                new SpinnerNumberModel(0, //initial value
-                        0, //min
-                        100, //max
-                        1);//step
-        gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(e -> gasAmount = (int) ((JSpinner)e.getSource()).getValue());
-
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
@@ -96,6 +84,6 @@ public class CarController extends JPanel implements Observer {
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
-        gasButton.addActionListener(e -> gas(gasAmount));
+        gasButton.addActionListener(e -> gas((int) gasSpinner.getValue()));
     }
 }
