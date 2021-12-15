@@ -9,7 +9,7 @@ import java.awt.*;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class CarView extends JFrame{
+public class CarSimFrame extends JFrame{
     private static final int X = 800;
     private static final int Y = 800;
 
@@ -19,7 +19,7 @@ public class CarView extends JFrame{
     DrawPanel drawPanel;
 
     // Constructor
-    public CarView(String framename, CarController cc, Car car){
+    public CarSimFrame(String framename, CarController cc, Car car){
         carC = cc;
         drawPanel = new DrawPanel(X, Y-240, car);
         initComponents(framename);
