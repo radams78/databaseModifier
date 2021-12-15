@@ -12,7 +12,7 @@ public class DrawPanel extends JPanel implements Observer {
     // Just a single image, TODO: Generalize
     private BufferedImage volvoImage;
     // To keep track of a singel cars position
-    private Point volvoPoint = new Point();
+    private final Point volvoPoint = new Point();
 
     Car car;
     // TODO: Make this genereal for all cars
