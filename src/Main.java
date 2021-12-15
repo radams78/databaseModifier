@@ -4,7 +4,7 @@ public class Main {
         CarController cc = new CarController();
         cc.addCar(volvo);
         Clock clock = new Clock();
-        clock.addObserver(cc);
+        clock.addObserver(volvo);
         CarView view = new CarView("CarSim 1.0", cc, volvo);
 
         clock.addObserver(view.drawPanel);

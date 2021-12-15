@@ -8,7 +8,7 @@ import java.util.ArrayList;
 * modifying the model state and the updating the view.
  */
 
-public class CarController extends JPanel implements Observer {
+public class CarController extends JPanel {
     private static final int X = 800;
 
     // member fields:
@@ -23,15 +23,8 @@ public class CarController extends JPanel implements Observer {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars
-                ) {
-            car.gas(gas);
-        }
-    }
-
-    public void update() {
         for (Car car : cars) {
-            car.move();
+            car.gas(gas);
         }
     }
 

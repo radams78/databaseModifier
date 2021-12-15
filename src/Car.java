@@ -1,7 +1,7 @@
 import javax.naming.directory.InvalidAttributeIdentifierException;
 import java.awt.*;
 
-public class Car implements Movable {
+public class Car implements Movable, Observer {
     private Color color;
     private double currentSpeed; // The current speed of the car
     private double enginePower;
@@ -134,5 +134,10 @@ public class Car implements Movable {
         } else if (direction == 3) {
             direction = 0;
         }
+    }
+
+    @Override
+    public void update() {
+        move();
     }
 }
