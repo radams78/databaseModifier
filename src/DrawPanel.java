@@ -10,7 +10,7 @@ import java.util.Objects;
 public class DrawPanel extends JPanel implements Observer {
 
     // Just a single image, TODO: Generalize
-    BufferedImage volvoImage;
+    private BufferedImage volvoImage;
     // To keep track of a singel cars position
     Point volvoPoint = new Point();
 
