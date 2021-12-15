@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -14,7 +15,8 @@ public class CarController extends JPanel {
     // member fields:
 
     // A list of cars, modify if needed
-    private final ArrayList<Car> cars = new ArrayList<>();
+    private final Set<Car> cars = new HashSet<>();
+    private final Set<TurboCar> turboCars = new HashSet<>();
     private final GasSpinner gasSpinner = new GasSpinner();
 
 
@@ -72,5 +74,10 @@ public class CarController extends JPanel {
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
         gasButton.addActionListener(e -> gas((int) gasSpinner.getValue()));
+    }
+
+    public void addTurboCar(TurboCar turboCar) {
+        cars.add(turboCar);
+        turboCars.add(turboCar);
     }
 }
