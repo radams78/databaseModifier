@@ -16,15 +16,6 @@ public class CarController extends JPanel implements Observer {
     // A list of cars, modify if needed
     private final ArrayList<Car> cars = new ArrayList<>();
     private final GasSpinner gasSpinner = new GasSpinner();
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
-
-    JButton startButton = new JButton("Start all cars");
-    JButton stopButton = new JButton("Stop all cars");
 
 
     //methods:
@@ -55,23 +46,31 @@ public class CarController extends JPanel implements Observer {
 
         controlPanel.setLayout(new GridLayout(2,4));
 
+        JButton gasButton = new JButton("Gas");
         controlPanel.add(gasButton, 0);
+        JButton turboOnButton = new JButton("Saab Turbo on");
         controlPanel.add(turboOnButton, 1);
+        JButton liftBedButton = new JButton("Scania Lift Bed");
         controlPanel.add(liftBedButton, 2);
+        JButton brakeButton = new JButton("Brake");
         controlPanel.add(brakeButton, 3);
+        JButton turboOffButton = new JButton("Saab Turbo off");
         controlPanel.add(turboOffButton, 4);
+        JButton lowerBedButton = new JButton("Lower Lift Bed");
         controlPanel.add(lowerBedButton, 5);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
 
 
+        JButton startButton = new JButton("Start all cars");
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
         startButton.setPreferredSize(new Dimension(X/5-15,200));
         add(startButton);
 
 
+        JButton stopButton = new JButton("Stop all cars");
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
