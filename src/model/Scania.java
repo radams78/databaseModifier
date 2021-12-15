@@ -1,15 +1,17 @@
+package model;
+
 import java.awt.*;
 
 public class Scania extends Truck {
-    private ScaniaPlatform platform;
+    private final ScaniaPlatform platform;
 
-    private Scania(ScaniaPlatform platform) {
-        super(2, Color.RED, 100, "Scania", platform);
+    private Scania(ScaniaPlatform platform, int x, int y) {
+        super(2, Color.RED, 100, "model.Scania", platform, x, y);
         this.platform = platform;
     }
 
-    public Scania() {
-        this(new ScaniaPlatform());
+    public Scania(int x, int y) {
+        this(new ScaniaPlatform(), x, y);
     }
 
     public void raisePlatform(int angle) throws PlatformWhileMovingException, PlatformAngleException {
@@ -18,12 +20,6 @@ public class Scania extends Truck {
 
     public void lowerPlatform(int angle) throws PlatformWhileMovingException, PlatformAngleException {
         platform.lower(angle);
-    }
-}
-
-class PlatformWhileMovingException extends IllegalStateException {
-    PlatformWhileMovingException(String message) {
-        super(message);
     }
 }
 

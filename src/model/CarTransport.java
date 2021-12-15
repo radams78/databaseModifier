@@ -1,17 +1,19 @@
+package model;
+
 import java.awt.*;
 
 public class CarTransport extends Truck {
     private TransportRamp ramp;
     private Contents<Car> contents;
 
-    private CarTransport(TransportRamp ramp) {
-        super(2, Color.BLACK, 250, "Montway", ramp);
+    private CarTransport(TransportRamp ramp, int x, int y) {
+        super(2, Color.BLACK, 250, "Montway", ramp, x, y);
         this.ramp = ramp;
         this.contents = new Contents<>();
     }
 
-    public CarTransport() {
-        this(new TransportRamp());
+    public CarTransport(int x, int y) {
+        this(new TransportRamp(), x, y);
     }
     public void raiseRamp() {
         ramp.raise();

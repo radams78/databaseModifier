@@ -1,3 +1,8 @@
+package model;
+
+import model.Platform;
+import model.PlatformWhileMovingException;
+
 // Invariant: (up || ! locked)
 public class TransportRamp implements Platform {
     boolean locked = false;

@@ -1,10 +1,16 @@
+package model;
+
+import model.Car;
+import model.Platform;
+import model.PlatformWhileMovingException;
+
 import java.awt.*;
 
 public class Truck extends Car {
-    private Platform platform;
+    private final Platform platform;
 
-    public Truck(int nrDoors, Color color, double enginePower, String modelName, Platform platform) {
-        super(nrDoors, color, enginePower, modelName);
+    public Truck(int nrDoors, Color color, double enginePower, String modelName, Platform platform, int x, int y) {
+        super(nrDoors, color, enginePower, modelName, x, y);
         this.platform = platform;
     }
 

@@ -1,3 +1,7 @@
+package view;
+
+import model.Observer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashSet;

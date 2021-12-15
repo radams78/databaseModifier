@@ -1,11 +1,12 @@
-import javax.naming.directory.InvalidAttributeIdentifierException;
+package model;
+
 import java.awt.*;
 
 public class Car implements Movable, Observer {
     private Color color;
     private double currentSpeed; // The current speed of the car
-    private double enginePower;
-    private int nrDoors;
+    private final double enginePower;
+    private final int nrDoors;
     private String modelName; // The car model name
     // TODO Use Point here instead
     private int x;
@@ -13,23 +14,15 @@ public class Car implements Movable, Observer {
     private int direction; // 0 = north, 1 = east, 2 = south, 3 = west
     // Best practice here is to use an enum
 
-    public Car(int nrDoors, Color color, double enginePower, String modelName) {
+    public Car(int nrDoors, Color color, double enginePower, String modelName, int x, int y) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
-        this.x = 0;
-        this.y = 0;
+        this.x = x;
+        this.y = y;
         this.direction = 0;
         stopEngine();
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     void setPosition(Point p) {
@@ -97,14 +90,24 @@ public class Car implements Movable, Observer {
 
     @Override
     public void move() {
-        if (direction == 0) {
-            y += getCurrentSpeed();
-        } else if (direction == 1) {
-            x += getCurrentSpeed();
-        } else if (direction == 2) {
-            y -= getCurrentSpeed();
-        } else if (direction == 3) {
-            x -= getCurrentSpeed();
+        switch (direction) {
+            case 0 -> {
+                y += getCurrentSpeed();
+                if (y > 800 - 240) direction = 2;
+            }
+            case 1 -> {
+                x += getCurrentSpeed();
+                if (x > 800) direction = 3;
+            }
+            case 2 -> {
+                y -= getCurrentSpeed();
+                if (y < 0) direction = 0;
+            }
+            case 3 -> {
+                x -= getCurrentSpeed();
+                if (x < 0) direction = 1;
+            }
+            default -> throw new IllegalStateException("Invalid direction " + direction);
         }
     }
 

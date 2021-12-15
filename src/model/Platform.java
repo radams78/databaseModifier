@@ -1,3 +1,5 @@
+package model;
+
 interface Platform {
     // Called when we attempt to move the truck
     void lock() throws PlatformWhileMovingException;

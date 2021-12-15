@@ -1,3 +1,9 @@
+package model;
+
+import model.Car;
+import model.Contents;
+import model.LoadException;
+
 public class Workshop<T extends Car> {
     private Contents<T> loader;
 

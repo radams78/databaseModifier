@@ -1,3 +1,7 @@
+package model;
+
+import model.Car;
+
 import java.awt.*;
 import java.util.Stack;
 

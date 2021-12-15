@@ -1,3 +1,6 @@
+import controller.CarController;
+import view.DrawPanel;
+
 import javax.swing.*;
 import java.awt.*;
 

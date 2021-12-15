@@ -1,3 +1,7 @@
+package controller;
+
+import controller.GasSpinner;
+
 import javax.swing.*;
 import java.awt.*;
 

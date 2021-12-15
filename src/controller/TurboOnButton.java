@@ -1,3 +1,7 @@
+package controller;
+
+import model.TurboCar;
+
 import javax.swing.*;
 import java.util.Set;
 

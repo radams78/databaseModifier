@@ -1,3 +1,7 @@
+package controller;
+
+import model.Observer;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,12 +16,9 @@ public class Clock {
 
     public Clock() {
         observers = new HashSet<>();
-        timer = new Timer(delay, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                for (Observer o : observers)
-                    o.update();
-            }
+        timer = new Timer(delay, e -> {
+            for (Observer o : observers)
+                o.update();
         });
     }
 
