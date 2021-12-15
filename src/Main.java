@@ -5,15 +5,20 @@ public class Main {
     public static void main(String[] args) {
         Car volvo = new Volvo240();
         TurboCar saab = new Saab95();
+        Truck scania = new Scania();
 
         Set<Car> cars = new HashSet<>();
         cars.add(volvo);
         cars.add(saab);
+        cars.add(scania);
 
         Set<TurboCar> turboCars = new HashSet<>();
         turboCars.add(saab);
 
-        CarController cc = new CarController(cars, turboCars);
+        Set<Truck> trucks = new HashSet<>();
+        trucks.add(scania);
+
+        CarController cc = new CarController(cars, turboCars, trucks);
 
         Clock clock = new Clock();
         for (Car car : cars) {

@@ -14,25 +14,19 @@ public class CarController extends JPanel {
 
     // member fields:
 
-    // A list of cars, modify if needed
-    private final Set<Car> cars;
-    private final Set<TurboCar> turboCars;
-
 
     //methods:
 
-    public CarController(Set<Car> cars, Set<TurboCar> turboCars) {
-        this.cars = new HashSet<>(cars);
-        this.turboCars = new HashSet<>(turboCars);
-
+    public CarController(Set<Car> cars, Set<TurboCar> turboCars, Set<Truck> trucks) {
         GasSpinner gasSpinner = new GasSpinner();
+
         GasPanel gasPanel = new GasPanel(gasSpinner);
         add(gasPanel);
 
         ControlPanel controlPanel = new ControlPanel();
 
         controlPanel.add(new GasButton(cars, gasSpinner), 0);
-        controlPanel.add(new TurboOnButton(), 1);
+        controlPanel.add(new TurboOnButton(turboCars), 1);
         JButton liftBedButton = new JButton("Scania Lift Bed");
         controlPanel.add(liftBedButton, 2);
         JButton brakeButton = new JButton("Brake");
