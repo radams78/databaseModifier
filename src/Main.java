@@ -1,16 +1,30 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
         Car volvo = new Volvo240();
         TurboCar saab = new Saab95();
 
-        CarController cc = new CarController();
-        cc.addCar(volvo);
-        cc.addTurboCar(saab);
+        Set<Car> cars = new HashSet<>();
+        cars.add(volvo);
+        cars.add(saab);
+
+        Set<TurboCar> turboCars = new HashSet<>();
+        turboCars.add(saab);
+
+        CarController cc = new CarController(cars, turboCars);
 
         Clock clock = new Clock();
-        clock.addObserver(volvo);
+        for (Car car : cars) {
+            clock.addObserver(car);
+        }
 
-        DrawPanel view = DrawPanelFactory.makeDrawPanel(volvo);
+        Set<PaintableCar> paintableCars = new HashSet<>();
+        paintableCars.add(PaintableCarFactory.makeCarVolvoImage(volvo));
+        paintableCars.add(PaintableCarFactory.makeCarSaabImage(saab));
+
+        DrawPanel view = new DrawPanel(paintableCars);
         clock.addObserver(view);
 
         new CarSimFrame("CarSim 1.0", cc, view);

@@ -15,36 +15,24 @@ public class CarController extends JPanel {
     // member fields:
 
     // A list of cars, modify if needed
-    private final Set<Car> cars = new HashSet<>();
-    private final Set<TurboCar> turboCars = new HashSet<>();
-    private final GasSpinner gasSpinner = new GasSpinner();
+    private final Set<Car> cars;
+    private final Set<TurboCar> turboCars;
 
 
     //methods:
 
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Car car : cars) {
-            car.gas(gas);
-        }
-    }
+    public CarController(Set<Car> cars, Set<TurboCar> turboCars) {
+        this.cars = new HashSet<>(cars);
+        this.turboCars = new HashSet<>(turboCars);
 
-    public void addCar(Car car) {
-        cars.add(car);
-    }
-
-    public CarController() {
+        GasSpinner gasSpinner = new GasSpinner();
         GasPanel gasPanel = new GasPanel(gasSpinner);
         add(gasPanel);
+
         ControlPanel controlPanel = new ControlPanel();
 
-        controlPanel.setLayout(new GridLayout(2,4));
-
-        JButton gasButton = new JButton("Gas");
-        controlPanel.add(gasButton, 0);
-        JButton turboOnButton = new JButton("Saab Turbo on");
-        controlPanel.add(turboOnButton, 1);
+        controlPanel.add(new GasButton(cars, gasSpinner), 0);
+        controlPanel.add(new TurboOnButton(), 1);
         JButton liftBedButton = new JButton("Scania Lift Bed");
         controlPanel.add(liftBedButton, 2);
         JButton brakeButton = new JButton("Brake");
@@ -71,13 +59,5 @@ public class CarController extends JPanel {
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         add(stopButton);
 
-        // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
-        gasButton.addActionListener(e -> gas((int) gasSpinner.getValue()));
-    }
-
-    public void addTurboCar(TurboCar turboCar) {
-        cars.add(turboCar);
-        turboCars.add(turboCar);
     }
 }

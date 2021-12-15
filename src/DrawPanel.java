@@ -11,17 +11,14 @@ public class DrawPanel extends JPanel implements Observer {
     private final Set<PaintableCar> cars;
 
     // Initializes the panel and reads the images
-    public DrawPanel() {
-        this.setDoubleBuffered(true);
-        this.setPreferredSize(new Dimension(800, 800-240));
-        this.setBackground(Color.green);
+    public DrawPanel(Set<PaintableCar> cars) {
+        this.cars = new HashSet<>(cars);
 
-        cars = new HashSet<>();
+        setDoubleBuffered(true);
+        setPreferredSize(new Dimension(800, 800-240));
+        setBackground(Color.green);
     }
 
-    public void addCar(PaintableCar car) {
-        cars.add(car);
-    }
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
     @Override
