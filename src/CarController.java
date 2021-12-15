@@ -14,11 +14,10 @@ public class CarController extends JPanel implements Observer {
     // member fields:
 
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    private ArrayList<Car> cars = new ArrayList<>();
     ControlPanel controlPanel = new ControlPanel();
-    GasPanel gasPanel = new GasPanel();
     GasSpinner gasSpinner = new GasSpinner();
-    JLabel gasLabel = new JLabel("Amount of gas");
+    GasPanel gasPanel = new GasPanel(gasSpinner);
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
@@ -52,10 +51,6 @@ public class CarController extends JPanel implements Observer {
     }
 
     public CarController() {
-        gasPanel.setLayout(new BorderLayout());
-        gasPanel.add(gasLabel, BorderLayout.PAGE_START);
-        gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
-
         add(gasPanel);
 
         controlPanel.setLayout(new GridLayout(2,4));
