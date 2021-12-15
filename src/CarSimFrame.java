@@ -19,9 +19,9 @@ public class CarSimFrame extends JFrame{
     DrawPanel drawPanel;
 
     // Constructor
-    public CarSimFrame(String framename, CarController cc, Car car){
+    public CarSimFrame(String framename, CarController cc, DrawPanel view){
         carC = cc;
-        drawPanel = new DrawPanel(X, Y-240, car);
+        drawPanel = view;
         initComponents(framename);
     }
 

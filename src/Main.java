@@ -7,8 +7,9 @@ public class Main {
         Clock clock = new Clock();
         clock.addObserver(volvo);
 
-        CarSimFrame frame = new CarSimFrame("CarSim 1.0", cc, volvo);
-        clock.addObserver(frame.drawPanel);
+        DrawPanel view = new DrawPanel(800, 800-240, volvo);
+        CarSimFrame frame = new CarSimFrame("CarSim 1.0", cc, view);
+        clock.addObserver(view);
 
         // Start the timer
         clock.start();
