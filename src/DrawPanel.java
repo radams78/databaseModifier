@@ -14,7 +14,7 @@ public class DrawPanel extends JPanel implements Observer {
     // To keep track of a singel cars position
     private final Point volvoPoint = new Point();
 
-    private Car car;
+    private final Car car;
     // TODO: Make this genereal for all cars
     void moveit(int x, int y){
         volvoPoint.x = x;
