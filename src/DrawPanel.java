@@ -1,9 +1,9 @@
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
 
 // This panel represent the animated part of the view with the car images.
 
@@ -22,9 +22,9 @@ public class DrawPanel extends JPanel implements Observer {
     }
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y, Car car) {
+    public DrawPanel(Car car) {
         this.setDoubleBuffered(true);
-        this.setPreferredSize(new Dimension(x, y));
+        this.setPreferredSize(new Dimension(800, 800-240));
         this.setBackground(Color.green);
         // Print an error message in case file is not found with a try/catch block
         try {
@@ -34,7 +34,7 @@ public class DrawPanel extends JPanel implements Observer {
 
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
+            volvoImage = ImageIO.read(Objects.requireNonNull(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
         } catch (IOException ex)
         {
             ex.printStackTrace();
