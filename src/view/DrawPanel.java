@@ -1,6 +1,6 @@
 package view;
 
-import model.Observer;
+import controller.Observer;
 
 import javax.swing.*;
 import java.awt.*;

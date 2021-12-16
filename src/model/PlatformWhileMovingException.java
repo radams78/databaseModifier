@@ -1,6 +1,6 @@
 package model;
 
-class PlatformWhileMovingException extends IllegalStateException {
+public class PlatformWhileMovingException extends MovementException {
     PlatformWhileMovingException(String message) {
         super(message);
     }

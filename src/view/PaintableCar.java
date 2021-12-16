@@ -1,39 +1,19 @@
 package view;
 
 import model.Car;
-import view.DrawPanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
 public class PaintableCar extends JComponent {
-    private BufferedImage image;
+    private final Image image;
     private final Car car;
 
-    public PaintableCar(String filename, Car car) {
-        // Print an error message in case file is not found with a try/catch block
-        try {
-            // You can remove the "pics" part if running outside of IntelliJ and
-            // everything is in the same main folder.
-            // volvoImage = ImageIO.read(new File("model.Volvo240.jpg"));
-
-            // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
-            // if you are starting in IntelliJ.
-            image = ImageIO.read(
-                    Objects.requireNonNull(
-                            DrawPanel.class.getResourceAsStream(
-                                    filename
-                            )
-                    )
-            );
-        } catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
+    public PaintableCar(Image image, Car car) {
+        this.image = image;
         this.car = car;
     }
     @Override

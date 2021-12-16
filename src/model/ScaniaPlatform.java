@@ -8,12 +8,12 @@ public class ScaniaPlatform implements Platform {
     public void raise(int angle) throws PlatformWhileMovingException, PlatformAngleException {
         if (locked)
             throw new PlatformWhileMovingException(
-                    "Attempted to raise model.Scania platform by " + angle + " while moving"
+                    "Attempted to raise Scania platform by " + angle + " while moving"
             );
         int newAngle = this.angle + angle;
         if (newAngle > 70)
             throw new PlatformAngleException(
-                    "Attempted to raise model.Scania platform from " + this.angle + " degrees to " + newAngle + " degrees"
+                    "Attempted to raise Scania platform from " + this.angle + " degrees to " + newAngle + " degrees"
             );
         this.angle = newAngle;
     }

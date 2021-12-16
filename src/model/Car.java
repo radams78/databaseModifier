@@ -1,5 +1,7 @@
 package model;
 
+import controller.Observer;
+
 import java.awt.*;
 
 public class Car implements Movable, Observer {
@@ -22,7 +24,7 @@ public class Car implements Movable, Observer {
         this.x = x;
         this.y = y;
         this.direction = 0;
-        stopEngine();
+        currentSpeed = 0;
     }
 
     void setPosition(Point p) {
@@ -66,7 +68,7 @@ public class Car implements Movable, Observer {
         color = clr;
     }
 
-    public void startEngine(){
+    public void startEngine() throws MovementException {
         currentSpeed = 0.1;
     }
 
@@ -74,7 +76,7 @@ public class Car implements Movable, Observer {
         currentSpeed = 0;
     }
 
-    public void gas(double amount){
+    public void gas(double amount) throws MovementException {
         if (amount < 0 || amount > 1) {
             throw new IllegalArgumentException("Call to gas with amount " + amount);
         }

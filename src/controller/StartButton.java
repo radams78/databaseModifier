@@ -1,6 +1,7 @@
 package controller;
 
 import model.Car;
+import model.MovementException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +19,11 @@ public class StartButton extends JButton {
 
         addActionListener(e -> {
             for (Car car : cars) {
-                car.startEngine();
+                try {
+                    car.startEngine();
+                } catch (MovementException ex) {
+                    System.out.println(ex.getMessage());
+                }
             }
         });
     }

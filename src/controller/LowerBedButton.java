@@ -1,5 +1,6 @@
 package controller;
 
+import model.PlatformWhileMovingException;
 import model.Scania;
 
 import javax.swing.*;
@@ -12,7 +13,11 @@ public class LowerBedButton extends JButton {
         super("Lower Lift Bed");
         addActionListener(e -> {
             for (Scania scania : scanias) {
-                scania.lowerPlatform(RAISE_ANGLE);
+                try {
+                    scania.lowerPlatform(RAISE_ANGLE);
+                } catch (PlatformWhileMovingException ex) {
+                    System.out.println("Cannot lower platform while truck is moving");
+                }
             }
         });
     }

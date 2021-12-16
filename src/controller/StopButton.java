@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Set;
 
-public class StopButton extends JButton {
+class StopButton extends JButton {
     private static final int X = 800;
 
     public StopButton(Set<Car> cars) {
